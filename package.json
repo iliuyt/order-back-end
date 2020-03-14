@@ -1,0 +1,59 @@
+{
+  "name": "x_admin_api",
+  "script": "server.js",
+  "version": "1.2.0",
+  "description": "",
+  "private": true,
+  "dependencies": {
+    "@koa/cors": "^2.2.1",
+    "egg": "2.9.1",
+    "egg-scripts": "2.6.0",
+    "egg-sequelize": "3.1.5",
+    "jsonwebtoken": "^8.5.1",
+    "md5": "^2.2.1",
+    "mysql": "^2.17.1",
+    "mysql2": "^1.7.0",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4"
+  },
+  "devDependencies": {
+    "autod": "3.0.1",
+    "autod-egg": "1.0.0",
+    "egg-bin": "4.7.1",
+    "egg-ci": "1.8.0",
+    "egg-mock": "3.17.2",
+    "eslint": "4.19.1",
+    "eslint-config-egg": "6.0.0",
+    "sequelize-auto": "0.4.29",
+    "webstorm-disable-index": "^1.2.0"
+  },
+  "engines": {
+    "node": ">=8.9.0"
+  },
+  "scripts": {
+    "start": "egg-scripts start --daemon --title=egg-server-x_admin_api",
+    "stop": "egg-scripts stop --title=egg-server-x_admin_api",
+    "dev": "egg-bin dev --env=local",
+    "test-simple": "EGG_SERVER_ENV=test egg-bin dev",
+    "debug": "EGG_SERVER_ENV=test egg-bin debug",
+    "test": "npm run lint --fix && npm run test-local",
+    "test-local": "EGG_SERVER_ENV=test egg-bin test",
+    "cov": "egg-bin cov",
+    "lint": "eslint .",
+    "ci": "npm run lint && npm run cov",
+    "autod": "autod",
+    "migrate:new": "egg-sequelize migration:create",
+    "migrate:up": "egg-sequelize db:migrate",
+    "migrate:down": "egg-sequelize db:migrate:undo",
+    "auto": "node sequelize.auto.js "
+  },
+  "ci": {
+    "version": "8"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "",
+  "license": "MIT"
+}
